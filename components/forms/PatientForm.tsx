@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { UserFormValidation } from "@/lib/validation";
+import { createUser } from "@/lib/actions/patient.actions";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 
@@ -33,6 +34,12 @@ const PatientForm = () => {
             email: values.email,
             phone: values.phone,
           };
+
+          const newUser = await createUser(user);
+
+          if(newUser) {
+            router.push(`/patients/${newUser.$id}/register`);
+          }
 
         } catch (error) {
           console.error(error);
