@@ -19,9 +19,9 @@ export const createUser = async (user: CreateUserParams) => {
         const newUser = await users.create(
             ID.unique(),
             user.email,
-            user.name,
-            undefined,
             user.phone,
+            undefined,
+            user.name,
         );
 
         return parseStringify(newUser);
