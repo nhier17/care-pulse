@@ -15,6 +15,7 @@ import { SelectItem } from "@/components/ui/select";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-number-input/style.css";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
+import FileUpload from "../FileUpload";
 import { PatientFormValidation } from "@/lib/validation";
 import SubmitButton from "../SubmitButton";
 import {
@@ -291,7 +292,7 @@ const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
             label="Scanned Copy of Identification Document"
             renderSkeleton={(field) => (
               <FormControl>
-        
+                <FileUpload />
               </FormControl>
             )}
           />
