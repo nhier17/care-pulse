@@ -13,7 +13,7 @@ export interface Patient extends Models.Document {
   emergencyContactNumber: string;
   primaryPhysician: string;
   insuranceProvider: string;
-  insurancePolicy: string;
+  insurancePolicyNumber: string;
   allergies: string | undefined;
   currentMedication: string | undefined;
   familyMedicalHistory: string | undefined;

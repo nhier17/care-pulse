@@ -26,7 +26,7 @@ import {
   } from "@/constants";
   import { registerPatient } from "@/lib/actions/patient.actions";
 
-  
+
 const RegisterForm = ({ user }: { user: User }) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
@@ -66,7 +66,7 @@ const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
       
           const newPatient = await registerPatient(patientData)
           if(newPatient) {
-            router.push(`/patients/${userId.$id}/new-appointment`);
+            router.push(`/patients/${user.$id}/new-appointment`);
           }
     } catch (error) {
         console.log(error);
@@ -77,7 +77,7 @@ const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
   return (
     <Form {...form}>
       <form
-    
+        onSubmit={form.handleSubmit(onSubmit)}
         className="flex-1 space-y-12"
       >
         <section className="space-y-4">
@@ -317,7 +317,7 @@ const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
             label="Scanned Copy of Identification Document"
             renderSkeleton={(field) => (
               <FormControl>
-                <FileUpload />
+                <FileUpload files={field.value} onChange={field.onChange} />
               </FormControl>
             )}
           />
