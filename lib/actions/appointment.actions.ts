@@ -21,9 +21,9 @@ try {
         appointment
       );
       
-      revalidatePath("/admin");
+      
       return parseStringify(newAppointment); 
 } catch (error) {
-    
+    console.error(error);
 }
 }

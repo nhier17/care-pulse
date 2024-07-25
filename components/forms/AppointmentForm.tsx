@@ -16,6 +16,7 @@ import SubmitButton from "../SubmitButton";
 import { Form } from "../ui/form";
 import { getAppointmentSchema } from "@/lib/validation";
 import { Appointment } from "@/types/appwrite.types";
+import {  createAppointment } from "@/lib/actions/appointment.actions";
 
 const AppointmentForm = ({
     userId,
@@ -38,13 +39,11 @@ const AppointmentForm = ({
     const form = useForm<z.infer<typeof AppointmentFormValidation>>({
       resolver: zodResolver(AppointmentFormValidation),
       defaultValues: {
-        primaryPhysician: appointment ? appointment?.primaryPhysician : "",
-        schedule: appointment
-          ? new Date(appointment?.schedule!)
-          : new Date(Date.now()),
-        reason: appointment ? appointment.reason : "",
-        note: appointment?.note || "",
-        cancellationReason: appointment?.cancellationReason || "",
+        primaryPhysician : "",
+        schedule: new Date(),
+        reason : "",
+        note: "",
+        cancellationReason: "",
       },
     });
 
@@ -52,7 +51,7 @@ const AppointmentForm = ({
         setIsLoading(true);
         let status;
         switch (type) {
-            case schedule:
+            case "schedule":
             status = "scheduled";
             break;
             case "cancel":
@@ -104,7 +103,7 @@ const AppointmentForm = ({
     }
   return (
     <Form {...form}>
-    <form className="flex-1 space-y-6">
+    <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
     {type === "create" && (
     <section className="mb-12 space-y-4">
     <h1 className="header">New Appointment</h1>
