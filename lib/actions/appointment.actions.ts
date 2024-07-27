@@ -21,7 +21,7 @@ try {
         appointment
       );
       
-      
+      revalidatePath("/admin");
       return parseStringify(newAppointment); 
 } catch (error) {
     console.error(error);
@@ -91,4 +91,32 @@ export const getRecentAppointmentList = async() => {
       error
     );
   }
+};
+
+//update appointment
+export const updateAppointment = async ({
+  appointmentId,
+  userId,
+  timeZone,
+  appointment,
+  type,
+}: UpdateAppointmentParams) => {
+try {
+  //update the appointment
+  const updatedAppointment = await databases.updateDocument(
+    DATABASE_ID!,
+    APPOINTMENT_COLLECTION_ID!,
+    appointmentId,
+    appointment
+  );
+
+  if (!updatedAppointment) throw Error;
+  // Notify the patient about the appointment update
+
+  revalidatePath("/admin");
+  return parseStringify(updatedAppointment);
+
+} catch (error) {
+  console.error("An error occurred while scheduling an appointment:", error);
 }
+};

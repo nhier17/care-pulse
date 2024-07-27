@@ -16,7 +16,7 @@ import SubmitButton from "../SubmitButton";
 import { Form } from "../ui/form";
 import { getAppointmentSchema } from "@/lib/validation";
 import { Appointment } from "@/types/appwrite.types";
-import {  createAppointment } from "@/lib/actions/appointment.actions";
+import {  createAppointment, updateAppointment } from "@/lib/actions/appointment.actions";
 
 const AppointmentForm = ({
     userId,
@@ -81,6 +81,26 @@ const AppointmentForm = ({
                 `/patients/${userId}/new-appointment/success?appointmentId=${newAppointment.$id}`
               ); 
         } 
+        } else {
+          const appointmentToUpdate = {
+            userId,
+            appointmentId: appointment?.$id!,
+            appointment: {
+              primaryPhysician: values.primaryPhysician,
+              schedule: new Date(values.schedule),
+              status: status as Status,
+              cancellationReason: values.cancellationReason,
+            },
+            type,
+          };
+
+          const updatedAppointment = await updateAppointment(updatedAppointment);
+
+          if(updatedAppointment) {
+            setOpen && setOpen(false);
+            form.reset();
+          }
+
         }
         } catch (error) {
            console.error(error); 
