@@ -55,19 +55,59 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+
+Follow these steps to set up the project locally on your machine.
+
+**Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+**Cloning the Repository**
+
+```bash
+git clone https://github.com/nhier17/care-pulse.git
+cd care-pulse
+```
+
+**Installation**
+
+Install the project dependencies using npm:
+
+```bash
+npm install
+```
+
+**Set Up Environment Variables**
+
+Create a new file named `.env.local` in the root of your project and add the following content:
+
+```env
+#APPWRITE
+NEXT_PUBLIC_ENDPOINT=https://cloud.appwrite.io/v1
+PROJECT_ID=
+API_KEY=
+DATABASE_ID=
+PATIENT_COLLECTION_ID=
+APPOINTMENT_COLLECTION_ID=
+NEXT_PUBLIC_BUCKET_ID=
+
+NEXT_PUBLIC_ADMIN_PASSKEY=111111
+```
+
+Replace the placeholder values with your actual Appwrite credentials. You can obtain these credentials by signing up on the [Appwrite website](https://appwrite.io/).
+
+**Running the Project**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
