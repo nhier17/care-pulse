@@ -81,7 +81,6 @@ const AppointmentForm = ({
           };
   
           const newAppointment = await createAppointment(appointment);
-          console.log('that',newAppointment);
   
           if (newAppointment) {
             form.reset();
