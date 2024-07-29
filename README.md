@@ -1,3 +1,7 @@
+# Care Pulse
+## Project Description
+Care Pulse is a comprehensive healthcare patient management system designed to streamline and enhance the patient experience. This application allows patients to effortlessly register, book, and manage their appointments with doctors. It features administrative tools for healthcare providers, enabling efficient scheduling, confirmation, and cancellation of appointments. Additionally, the system offers SMS notifications to keep patients informed about their appointments. Built with Next.js, TypeScript, Tailwind CSS, and Appwrite, Care Pulse prioritizes a seamless user experience and efficient management processes.
+
 <div align="center">
   <br />
     <a href="https://care-pulse-io.vercel.app" target="_blank">
@@ -14,10 +18,6 @@
 
   <h3 align="center">A HealthCare Management System</h3>
 </div>
-
-# Care Pulse
-## Project Description
-Care Pulse is a comprehensive healthcare patient management system designed to streamline and enhance the patient experience. This application allows patients to effortlessly register, book, and manage their appointments with doctors. It features administrative tools for healthcare providers, enabling efficient scheduling, confirmation, and cancellation of appointments. Additionally, the system offers SMS notifications to keep patients informed about their appointments. Built with Next.js, TypeScript, Tailwind CSS, and Appwrite, Care Pulse prioritizes a seamless user experience and efficient management processes.
 
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
