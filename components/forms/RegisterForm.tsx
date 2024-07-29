@@ -81,8 +81,8 @@ const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
         className="flex-1 space-y-12"
       >
         <section className="space-y-4">
-          <h1 className="header">Welcome 👋</h1>
-          <p className="text-dark-700">Let us know more about yourself.</p>
+          <h1 className="header">Welcome to Your Health Journey 🌟</h1>
+          <p className="text-dark-700">Please fill out the form below so we can provide you with the best care possible.</p>
         </section>
 
         <section className="space-y-6">
