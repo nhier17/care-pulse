@@ -11,7 +11,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "CareConnection",
+  title: "Care Pulse",
   description: "A healthcare management system",
   icons: {
     icon: "/assets/icons/logo-icon.svg",

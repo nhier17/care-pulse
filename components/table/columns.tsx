@@ -22,7 +22,7 @@ export const columns: ColumnDef<Appointment>[] = [
     header: "Patient",
     cell: ({ row }) => {
       const appointment = row.original;
-      console.log('appointment',appointment)
+      
       return <p className="text-14-medium ">{appointment.patient.name}</p>;
     },
   },
